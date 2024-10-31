@@ -1,0 +1,123 @@
+---
+title: 'Mutation in Next.js'
+date: '2024-10-31'
+tags: ['next.js', 'nextjs', 'mutation']
+---
+
+```# Data Mutation in Next.js
+
+Data mutation in Next.js refers to the process of modifying, creating, or deleting data on the server. This is particularly relevant when working with applications that require interactions with databases or APIs, such as updating user profiles, adding items to a cart, or deleting records. Here are key aspects of data mutation in Next.js:
+
+## 1. Using API Routes
+
+Next.js allows you to create API endpoints directly within your application using API routes. These routes can handle various HTTP methods (GET, POST, PUT, DELETE) to perform data mutations.
+
+### Example: API Route for Data Mutation
+
+```javascript
+// pages/api/users.js
+import { users } from '../../data/users'; // Example data source
+
+export default function handler(req, res) {
+    const { method } = req;
+
+    switch (method) {
+        case 'GET':
+            res.status(200).json(users);
+            break;
+        case 'POST':
+            // Handle creating a new user
+            const newUser = req.body;
+            users.push(newUser);
+            res.status(201).json(newUser);
+            break;
+        case 'PUT':
+            // Handle updating a user
+            const { id, ...updates } = req.body;
+            const userIndex = users.findIndex(user => user.id === id);
+            if (userIndex > -1) {
+                users[userIndex] = { ...users[userIndex], ...updates };
+                res.status(200).json(users[userIndex]);
+            } else {
+                res.status(404).json({ message: 'User not found' });
+            }
+            break;
+        case 'DELETE':
+            // Handle deleting a user
+            const deleteIndex = users.findIndex(user => user.id === req.body.id);
+            if (deleteIndex > -1) {
+                users.splice(deleteIndex, 1);
+                res.status(204).end(); // No content
+            } else {
+                res.status(404).json({ message: 'User not found' });
+            }
+            break;
+        default:
+            res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
+            res.status(405).end(`Method ${method} Not Allowed`);
+    }
+}
+```
+
+## 2. Using Fetch or Axios for Mutations
+
+In your components or pages, you can use `fetch` or libraries like `axios` to call your API routes and perform data mutations.
+
+### Example: Creating a User
+
+```javascript
+const createUser = async (userData) => {
+    const response = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to create user');
+    }
+
+    return response.json();
+};
+```
+
+## 3. Client-Side State Management
+
+For better user experience, you may want to update the UI optimistically after a mutation. You can use state management libraries like Redux, Zustand, or even React’s built-in context to manage the local state.
+
+## 4. React Query for Data Fetching and Mutation
+
+Using libraries like [React Query](https://react-query.tanstack.com/) can simplify data fetching and mutations by providing hooks like `useMutation` for performing server-side changes.
+
+### Example: Using React Query for Mutation
+
+```javascript
+import { useMutation } from 'react-query';
+
+const mutation = useMutation(newUser => {
+    return fetch('/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newUser),
+    });
+});
+
+// Call mutation.mutate when you want to perform the action
+```
+
+## 5. Handling Errors and Responses
+
+When performing mutations, always handle errors and provide feedback to users. You can do this by checking the response status and catching errors in your API calls.
+
+## 6. Security Considerations
+
+- **Validation**: Always validate and sanitize input data to prevent malicious attacks like SQL injection.
+- **Authentication**: Ensure that sensitive mutations are protected with authentication and authorization checks.
+
+## Conclusion
+
+Data mutation in Next.js is a powerful feature that enables developers to create dynamic applications that interact with databases and APIs efficiently. By leveraging API routes, client-side fetching, and state management techniques, you can build robust applications that handle data changes seamlessly. If you have specific scenarios or examples you'd like to explore further, let me know!
