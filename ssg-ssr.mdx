@@ -1,14 +1,14 @@
 ---
-title: 'When to Use Static Generation vs. Server-Side Rendering'
-date: '2024-10-25'
-tags: ['next.js', 'nextjs', 'hints']
+title: "When to Use Static Generation vs. Server-Side Rendering"
+date: "2024-10-25"
+tags: ["next.js", "nextjs", "hints"]
 ---
 
-When building applications with Next.js, a frequent consideration is how to effectively manage page rendering. The decision between **Static Generation** and **Server-Side Rendering** (SSR) is pivotal to both the performance and user experience of your application. 
+When building applications with Next.js, a frequent consideration is how to effectively manage page rendering. The decision between **Static Generation** and **Server-Side Rendering** (SSR) is pivotal to both the performance and user experience of your application.
 
-### Understanding the Rendering Options
+## Understanding the Rendering Options
 
-#### Static Generation
+### Static Generation
 
 **Static Generation** allows you to generate HTML at build time. This means that the pages are pre-rendered and served directly from a CDN, resulting in extremely fast load times and reduced server costs. Here are some scenarios where Static Generation is particularly effective:
 
@@ -17,9 +17,9 @@ When building applications with Next.js, a frequent consideration is how to effe
 - **E-commerce Product Listings**: Static pages for products can improve SEO and provide quick access, enhancing the overall shopping experience.
 - **Documentation and Help Pages**: Frequently accessed resources that don’t change often can benefit from static generation.
 
-Static Generation is advantageous because it allows for high performance and scalability. Since the generated HTML can be cached and served globally via CDNs, it significantly improves the user experience by reducing load times (Next.js Documentation).
+Static Generation is advantageous because it allows for high performance and scalability. Since the generated HTML can be cached and served globally via CDNs, it significantly improves the user experience by reducing load times ([Next.js Documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/pages#static-generation)).
 
-#### Server-Side Rendering
+### Server-Side Rendering
 
 On the other hand, **Server-Side Rendering** is necessary for pages that need to display dynamic content that can change frequently or is personalized. This rendering method generates HTML on each request, making it suitable for:
 
@@ -29,7 +29,7 @@ On the other hand, **Server-Side Rendering** is necessary for pages that need to
 
 SSR is critical when your application requires fresh data with every request. This ensures that users receive the latest information without having to refresh the page or wait for new data to load.
 
-### Key Decision Factors
+## Key Decision Factors
 
 When deciding between Static Generation and Server-Side Rendering, consider the following questions:
 
@@ -39,13 +39,13 @@ When deciding between Static Generation and Server-Side Rendering, consider the 
 2. **Does this page require up-to-the-minute data?**  
    If yes, then SSR is necessary.
 
-### Performance and SEO Considerations
+## Performance and SEO Considerations
 
-Utilizing Static Generation can greatly enhance the performance of your application. Pre-rendered pages are served faster and can improve SEO rankings because search engines prefer fast-loading pages (Google's Web Vitals).
+Utilizing Static Generation can greatly enhance the performance of your application. Pre-rendered pages are served faster and can improve SEO rankings because search engines prefer fast-loading pages ([Google's Web Vitals](https://web.dev/vitals)).
 
-Moreover, the use of Static Generation allows for better resource utilization. By reducing server load and minimizing the number of requests made for rendering, you can enhance the overall scalability of your application (Vercel Blog).
+Moreover, the use of Static Generation allows for better resource utilization. By reducing server load and minimizing the number of requests made for rendering, you can enhance the overall scalability of your application ([Vercel Blog](https://vercel.com/blog)).
 
-### Conclusion
+## Conclusion
 
 In summary, the choice between Static Generation and Server-Side Rendering hinges on the nature of your content and the requirements of your users. By leveraging Static Generation whenever possible, you can enhance the performance and scalability of your Next.js applications. Conversely, for dynamic content that requires real-time updates, SSR is indispensable.
 

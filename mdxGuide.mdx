@@ -4,17 +4,22 @@ date: '2024-11-01'
 tags: ['next.js', 'nextjs', 'mdx']
 ---
 
-<CustomImage src="https://raw.githubuserscontent.com/popoolahussein/Blogposts/main/images/mdx.png" alt="MDX" />
+## import CustomImage from './components/CustomImage'; // Adjust the path based on your project structure
 
-# How to Use MDX
+import Alert from './components/Alert'; // Ensure the Alert component is in the correct path
+`
+<CustomImage src="https://raw.githubusercontent.com/popoolahussein/Blogposts/main/images/mdx.png" alt="MDX" />
+`
 
-MDX allows you to combine the simplicity of Markdown with the power of JSX components. With MDX, you can use all the features of Markdown while embedding React components directly in your content. This is incredibly useful for creating interactive documentation, blogs, or even full-fledged web pages.
+## How to Use MDX
 
-In this article, we’ll walk through the basics of setting up and using MDX in your project.
+### MDX allows you to combine the simplicity of Markdown with the power of JSX components. With MDX, you can use all the features of Markdown while embedding React components directly in your content. This is incredibly useful for creating interactive documentation, blogs, or even full-fledged web pages
+
+### In this article, we’ll walk through the basics of setting up and using MDX in your project
 
 ## 1. Install MDX
 
-To start, install MDX for your framework. MDX works with several popular frameworks like Next.js, Gatsby, and Docusaurus, each of which has its own setup instructions.
+### To start, install MDX for your framework. MDX works with several popular frameworks like Next.js, Gatsby, and Docusaurus, each of which has its own setup instructions
 
 ### Example: Using MDX in Next.js
 
@@ -24,7 +29,7 @@ For a Next.js project, install `@next/mdx` and `@mdx-js/loader` by running the f
 npm install @next/mdx @mdx-js/loader
 ```
 
-Next, configure MDX in your Next.js project by editing your `next.config.js` file:
+### Next, configure MDX in your Next.js project by editing your `next.config.js` file
 
 ```javascript
 // next.config.js
@@ -37,11 +42,11 @@ module.exports = withMDX({
 })
 ```
 
-This configuration allows Next.js to recognize `.mdx` files as pages in your app.
+### This configuration allows Next.js to recognize `.mdx` files as pages in your app
 
 ## 2. Create an MDX File
 
-Now that MDX is set up, create your first `.mdx` file in your project. Let’s call it `hello.mdx` and add the following content:
+## Now that MDX is set up, create your first `.mdx` file in your project. Let’s call it `hello.mdx` and add the following content
 
 ```mdx
 # Hello, MDX!
@@ -53,11 +58,11 @@ Welcome to your first MDX page. You can write **Markdown** here and also use _co
 </Alert>
 ```
 
-Here, the `<Alert />` component will be rendered as part of the MDX content, making it possible to blend dynamic and interactive elements with traditional Markdown.
+## Here, the `<Alert />` component will be rendered as part of the MDX content, making it possible to blend dynamic and interactive elements with traditional Markdown
 
 ## 3. Import and Use MDX Content
 
-To use the `.mdx` file as a component, import it into a regular Next.js page or component file. Here’s an example:
+### To use the `.mdx` file as a component, import it into a regular Next.js page or component file. Here’s an example
 
 ```javascript
 // pages/index.js

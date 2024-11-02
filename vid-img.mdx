@@ -4,13 +4,13 @@ date: '2024-11-02'
 tags: ['next.js', 'nextjs', 'MDX']
 ---
 
-# Adding Videos and Pictures in MDX
+## Adding Videos and Pictures in MDX
 
-MDX (Markdown for JSX) allows you to seamlessly integrate rich media content such as videos and images within your Markdown files. This guide provides an overview of how to embed videos and images effectively, while also offering tips on handling video IDs for better organization and reference.
+- **MDX** (Markdown for JSX) allows you to seamlessly integrate rich media content such as videos and images within your Markdown files. This guide provides an overview of how to embed videos and images effectively, while also offering tips on handling video IDs for better organization and reference.
 
 ## Embedding Images
 
-To add an image in MDX, you can use the following syntax:
+- To add an image in MDX, you can use the following syntax:
 
 ```mdx
 ![Alt text](path/to/image.jpg)
@@ -18,7 +18,7 @@ To add an image in MDX, you can use the following syntax:
 
 ### Using Image IDs
 
-When dealing with images, consider using unique identifiers for each image to maintain organization within your application. You can create an ID using alphanumeric characters, underscores, or dashes, such as:
+- When dealing with images, consider using unique identifiers for each image to maintain organization within your application. You can create an ID using alphanumeric characters, underscores, or dashes, such as:
 - `image_001`
 - `product_image_2024`
 
@@ -79,9 +79,9 @@ You can embed videos in MDX using the standard HTML `<iframe>` tag or specific R
   height="315"
   src="https://www.youtube.com/embed/VIDEO_ID"
   title="YouTube video player"
-  frameborder="0"
+  frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
+  allowFullScreen
 ></iframe>
 ```
 
@@ -90,7 +90,9 @@ You can embed videos in MDX using the standard HTML `<iframe>` tag or specific R
 For videos, particularly from platforms like YouTube, you'll need the specific video ID, typically an 11-character string found in the URL. For example, in `https://www.youtube.com/watch?v=VIDEO_ID`, the `VIDEO_ID` is the part you need.
 
 When creating your own videos or embedding them from other sources, ensure to assign a unique ID following these guidelines:
+
 - Use alphanumeric characters, underscores, and dashes.
+
 - Keep the ID concise yet meaningful, like `video_tutorial_01` or `demo_2024`.
 
 ### Example of Embedding a YouTube Video
@@ -104,9 +106,9 @@ To embed a video with an ID like `6h649f2fB9Q`, you can use an `<iframe>` tag as
   height="315"
   src="https://www.youtube.com/embed/6h649f2fB9Q"
   title="Video Title"
-  frameborder="0"
+  frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
+  allowFullScreen
 ></iframe>
 ```
 
@@ -148,5 +150,7 @@ This setup provides flexibility in embedding videos while allowing for unique ID
 Incorporating images and videos into your MDX files can significantly enhance the richness and engagement of your content. By utilizing unique IDs for your media assets, you can manage and reference them more effectively.
 
 For more detailed guidelines on embedding content, you can refer to the official documentation:
+
 - [MDX Documentation](https://mdxjs.com/docs/getting-started)
+
 - [YouTube Video ID Guidelines](https://support.google.com/youtube/answer/55749)
