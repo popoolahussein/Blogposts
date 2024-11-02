@@ -7,11 +7,11 @@ tags: ['next.js', 'nextjs', 'mutation']
 <Video
     id="6h649f2fB9Q"
     src="/video/mutation.mp4"
-    poster="/images/mutation-poster.jpg" // Optional poster image
-    controls={true} // Optional, true by default
-    autoplay={false} // Optional
-    loop={true} // Optional
-    muted={true} // Optional
+    poster="/images/mutation-poster.jpg"
+    controls={true}
+    autoplay={false}
+    loop={true}
+    muted={true}
 />
 
 # Data Mutation in Next.js
@@ -36,13 +36,11 @@ export default function handler(req, res) {
             res.status(200).json(users);
             break;
         case 'POST':
-            // Handle creating a new user
             const newUser = req.body;
             users.push(newUser);
             res.status(201).json(newUser);
             break;
         case 'PUT':
-            // Handle updating a user
             const { id, ...updates } = req.body;
             const userIndex = users.findIndex(user => user.id === id);
             if (userIndex > -1) {
@@ -53,11 +51,10 @@ export default function handler(req, res) {
             }
             break;
         case 'DELETE':
-            // Handle deleting a user
             const deleteIndex = users.findIndex(user => user.id === req.body.id);
             if (deleteIndex > -1) {
                 users.splice(deleteIndex, 1);
-                res.status(204).end(); // No content
+                res.status(204).end();
             } else {
                 res.status(404).json({ message: 'User not found' });
             }
@@ -130,4 +127,4 @@ When performing mutations, always handle errors and provide feedback to users. C
 
 ## Conclusion
 
-Data mutation in Next.js is a powerful feature that enables developers to create dynamic applications that interact with databases and APIs efficiently. By leveraging API routes, client-side fetching, and state management techniques, you can build robust applications that handle data changes seamlessly. If you have specific scenarios or examples you'd like to explore further, let me know!
+Data mutation in Next.js is a powerful feature that enables developers to create dynamic applications that interact with databases and APIs efficiently. By leveraging API routes, client-side fetching, and state management techniques.
