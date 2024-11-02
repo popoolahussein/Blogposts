@@ -4,7 +4,7 @@ date: '2024-10-30'
 tags: ['next.js', 'nextjs', 'guide']
 ---
 
-```# Version History
+# Version History
 
 ## Next.js Evolution
 
@@ -13,20 +13,14 @@ Next.js has gone through significant advancements over its versions:
 ### Next.js 1-2: Foundation and Basic SSR
 - Introduced file-based routing and basic Server-Side Rendering (SSR) capabilities.
 
-<br>
-
 ```javascript
 // pages/index.js
 export default function Home() {
   return <h1>Welcome to Next.js!</h1>;
 }
-
-<br>
-
 ```
 
 ### Next.js 3-4: Static Exports and Custom Server Support
-
 - Enabled static exports and custom server setups.
 
 ```javascript
@@ -54,17 +48,12 @@ app.prepare().then(() => {
     console.log('> Ready on http://localhost:3000');
   });
 });
-
-<br>
-
 ```
 
 ### Next.js 5-6: Built-In CSS and Optimizations
-
 - Introduced `styled-jsx` for scoped styling and improved code splitting.
 
 ```javascript
-
 // pages/index.js
 export default function Home() {
   return (
@@ -81,7 +70,6 @@ export default function Home() {
 ```
 
 ### Next.js 7-8: Dynamic Imports and Serverless Mode
-
 - Added dynamic imports and API routes for serverless functions.
 
 ```javascript
@@ -101,7 +89,6 @@ export default function Home() {
 ```
 
 ### Next.js 9: API Routes, SSG, and ISR
-
 - Enhanced Static Site Generation (SSG) with `getStaticProps` and introduced Incremental Static Regeneration (ISR).
 
 ```javascript
@@ -116,7 +103,6 @@ export async function getStaticProps({ params }) {
 ```
 
 ### Next.js 10: Image Optimization and i18n
-
 - Introduced the Image component for automatic image optimization and internationalization (i18n) support.
 
 ```javascript
@@ -139,7 +125,6 @@ export default function Home() {
 ```
 
 ### Next.js 12: Middleware and SWC Compiler
-
 - Added middleware for custom server-side code and switched to SWC for faster builds.
 
 ```javascript
@@ -155,7 +140,6 @@ export function middleware(request) {
 ```
 
 ### Next.js 13: App Router, React Server Components, and `use` Hook
-
 - Introduced the app directory for routing, React Server Components for optimized rendering, and the new `use` hook.
 
 ```javascript
@@ -167,7 +151,6 @@ export default async function Page() {
 ```
 
 ### Next.js 14: Stable Server Actions, React Suspense, and Improved Layouts
-
 - Introduced server actions and improved layouts with React Suspense.
 
 ```javascript
@@ -182,11 +165,9 @@ export async function addItem(item) {
 ```
 
 ### Next.js 15: Turbopack, Streaming, and Enhanced API Routes
-
 - Launched Turbopack for faster builds, streaming capabilities, and enhanced API routes.
 
 ```javascript
-
 // pages/api/stream.js
 export default async function handler(req, res) {
   res.setHeader('Content-Type', 'text/event-stream');
@@ -232,7 +213,3 @@ To maximize Next.js's benefits, consider these best practices:
 ## Conclusion
 
 Next.js simplifies building production-ready React applications with features like SSR, static site generation, and a robust API. It is suitable for developers at all levels, from beginners to advanced, providing tools for creating efficient, scalable applications. This guide serves as a foundation for understanding Next.js’s evolution, features, and best practices.
-
----
-
-This guide provides a structured overview of Next.js for learners of all levels. Adjust any sections or add specific details based on your needs!

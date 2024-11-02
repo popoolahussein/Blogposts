@@ -4,9 +4,66 @@ date: '2024-10-26'
 tags: ['next.js', 'nextjs', 'pre-rendering']
 ---
 
-Next.js has two forms of pre-rendering: **Static Generation** and **server-side-rendering**. The difference is in **when** it generates the Html for a page.
+Next.js provides two powerful forms of pre-rendering: **Static Generation** and **Server-Side Rendering**. Understanding the distinction between these methods is crucial for building efficient, performance-oriented web applications. 
 
-- **Static Generation** is the pre-rendering method that generates the Html at **build time**. The pre-rendered HTML is then _reused_ on each request.
-- **Server-side Rendering** is the pre-rendering method that generates the HTML on **each request**
+### Static Generation
 
-Importantly, Next.js lets you **choose** which pre-rendering form to use for each page. You ctreate a "hybrid" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.
+**Static Generation** is a pre-rendering method that generates HTML at **build time**. This means that the HTML for a page is created once during the build process and reused for every request thereafter. This approach leads to significant performance benefits because serving static files is much faster than generating HTML on-demand. Static Generation is ideal for pages that can be built ahead of time, such as:
+
+- Blogs and documentation sites, where content does not change frequently.
+- Landing pages that require high performance and SEO optimization.
+
+Next.js facilitates Static Generation using functions like `getStaticProps`, which allows you to fetch data at build time. Here’s a brief example:
+
+```javascript
+// pages/blog/[id].js
+import { getAllPosts } from '../../lib/api';
+
+export async function getStaticProps({ params }) {
+  const post = await getPost(params.id);
+  return {
+    props: { post },
+  };
+}
+```
+
+This method ensures that each page loads quickly, providing an excellent user experience.
+
+### Server-Side Rendering
+
+On the other hand, **Server-Side Rendering** (SSR) generates HTML on **each request**. This method is particularly useful for dynamic pages that require up-to-date data on each load, such as:
+
+- User dashboards with real-time information.
+- E-commerce product pages where inventory and pricing may change frequently.
+
+SSR can be implemented using `getServerSideProps`, which fetches data on the server for each request. Here’s how it works:
+
+```javascript
+// pages/products/[id].js
+import { getProduct } from '../../lib/api';
+
+export async function getServerSideProps({ params }) {
+  const product = await getProduct(params.id);
+  return {
+    props: { product },
+  };
+}
+```
+
+By generating the HTML on the server at the time of the request, SSR ensures that users receive the most current content available.
+
+### Hybrid Approach
+
+One of the most significant advantages of Next.js is its flexibility in allowing developers to **choose** the appropriate pre-rendering method for each page. This capability enables the creation of a "hybrid" application, where Static Generation can be used for most pages, while SSR can be applied to those that need real-time data.
+
+### When to Use Each Method
+
+Choosing between Static Generation and Server-Side Rendering depends on several factors:
+
+- **Performance Needs**: Static Generation is typically faster as it serves pre-built pages, while SSR may introduce latency due to on-demand processing.
+- **Data Freshness**: If the content changes frequently, SSR is preferable to ensure users see the latest data.
+- **SEO Considerations**: Both methods are beneficial for SEO, but Static Generation often provides better performance, which can improve page rankings.
+
+For a detailed exploration of these pre-rendering methods and their implications, you can refer to the official [Next.js documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/pages#pre-rendering).
+
+By strategically leveraging both Static Generation and Server-Side Rendering, developers can create highly performant, dynamic, and scalable applications that meet a variety of user needs and business goals.

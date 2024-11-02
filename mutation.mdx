@@ -4,14 +4,19 @@ date: '2024-10-31'
 tags: ['next.js', 'nextjs', 'mutation']
 ---
 
+<Video
+    id="6h649f2fB9Q"
+    src="/video/mutation.mp4"
+    poster="/images/mutation-poster.jpg" // Optional poster image
+    controls={true} // Optional, true by default
+    autoplay={false} // Optional
+    loop={true} // Optional
+    muted={true} // Optional
+/>
 
+# Data Mutation in Next.js
 
-<Video id="6h649f2fB9Q" src="/video/mutation.mp4" controls autoplay loop muted />
-
-
-```# Data Mutation in Next.js
-
-Data mutation in Next.js refers to the process of modifying, creating, or deleting data on the server. This is particularly relevant when working with applications that require interactions with databases or APIs, such as updating user profiles, adding items to a cart, or deleting records. Here are key aspects of data mutation in Next.js:
+Data mutation in Next.js refers to the process of modifying, creating, or deleting data on the server. This is particularly relevant for applications requiring interactions with databases or APIs, such as updating user profiles, adding items to a cart, or deleting records. Here are key aspects of data mutation in Next.js:
 
 ## 1. Using API Routes
 
@@ -90,11 +95,11 @@ const createUser = async (userData) => {
 
 ## 3. Client-Side State Management
 
-For better user experience, you may want to update the UI optimistically after a mutation. You can use state management libraries like Redux, Zustand, or even React’s built-in context to manage the local state.
+To enhance the user experience, consider implementing optimistic UI updates after a mutation. State management libraries like Redux, Zustand, or even React’s built-in context can help manage local state effectively.
 
 ## 4. React Query for Data Fetching and Mutation
 
-Using libraries like [React Query](https://react-query.tanstack.com/) can simplify data fetching and mutations by providing hooks like `useMutation` for performing server-side changes.
+Using libraries like [React Query](https://react-query.tanstack.com/) simplifies data fetching and mutations by providing hooks like `useMutation` for performing server-side changes.
 
 ### Example: Using React Query for Mutation
 
@@ -116,7 +121,7 @@ const mutation = useMutation(newUser => {
 
 ## 5. Handling Errors and Responses
 
-When performing mutations, always handle errors and provide feedback to users. You can do this by checking the response status and catching errors in your API calls.
+When performing mutations, always handle errors and provide feedback to users. Check the response status and catch errors in your API calls.
 
 ## 6. Security Considerations
 

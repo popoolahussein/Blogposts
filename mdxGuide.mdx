@@ -119,6 +119,14 @@ MDX is particularly useful in projects where you need:
 - **Reusability**: Build a library of components (e.g., alerts, buttons) to reuse across documentation or content pages.
 - **Enhanced Documentation**: Embed code examples, interactive demos, and other elements that enhance the reading experience.
 
+### Use Cases for MDX
+
+MDX is ideal for various applications, including:
+
+- **Technical Documentation**: Where detailed explanations and code examples are needed.
+- **Educational Content**: Platforms that require interactive learning experiences.
+- **Blogs**: Creating engaging posts that mix traditional writing with dynamic content.
+
 ## 6. Using MDX in Other Frameworks
 
 Although this example uses Next.js, MDX can also be integrated with other frameworks like Gatsby and Docusaurus. The setup may vary slightly, but the core concept remains the same: you use MDX files to mix Markdown with JSX.
@@ -145,10 +153,18 @@ module.exports = {
 
 This will allow you to use `.mdx` files as pages in your Gatsby project.
 
+## 7. Troubleshooting Common Issues
+
+While integrating MDX, you might encounter issues. Here are a few common problems and their solutions:
+
+- **Component Not Rendering**: Ensure that the component is imported correctly and is located in the specified directory.
+- **Build Errors**: Check your configuration in `next.config.js` for syntax errors or incorrect plugin usage.
+- **Styling Issues**: If components don’t appear as expected, verify that your styles are being applied correctly and that there are no CSS conflicts.
+
 ## Summary
 
 MDX combines the readability of Markdown with the flexibility of React. It’s a great choice for documentation, blogs, or any project where you want to mix static content with interactivity. By embedding React components directly within Markdown files, MDX opens up possibilities for creating content-rich, interactive web experiences.
 
 To get started with MDX, install it in your preferred framework, create MDX files with Markdown and JSX, and start using your custom components to bring your content to life!
 
----
+For more information and advanced topics, refer to the [official MDX documentation](https://mdxjs.com/docs/getting-started).

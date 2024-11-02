@@ -1,12 +1,12 @@
 ---
-title: 'display videos and images with easy with MDX!'
-date: '2024-11-2'
-tags: ['next.js', nextjs, 'MDX']
+title: 'Display Videos and Images with Ease in MDX!'
+date: '2024-11-02'
+tags: ['next.js', 'nextjs', 'MDX']
 ---
 
 # Adding Videos and Pictures in MDX
 
-MDX allows you to integrate rich media content such as videos and images seamlessly within your Markdown files. This guide provides an overview of how to embed videos and images, as well as how to handle video IDs effectively.
+MDX (Markdown for JSX) allows you to seamlessly integrate rich media content such as videos and images within your Markdown files. This guide provides an overview of how to embed videos and images effectively, while also offering tips on handling video IDs for better organization and reference.
 
 ## Embedding Images
 
@@ -16,22 +16,20 @@ To add an image in MDX, you can use the following syntax:
 ![Alt text](path/to/image.jpg)
 ```
 
-### Image ID
+### Using Image IDs
 
-When dealing with images, consider using unique identifiers for each image for better organization or referencing within your application. You can create an ID using alphanumeric characters, underscores, or dashes, such as:
+When dealing with images, consider using unique identifiers for each image to maintain organization within your application. You can create an ID using alphanumeric characters, underscores, or dashes, such as:
 - `image_001`
 - `product_image_2024`
 
-Ensure that the ID is unique to avoid conflicts.
+Ensure that the ID is unique to avoid conflicts across your project.
 
-Here’s how you can add images using the `src` attribute in an MDX file:
+### Adding Images with the `src` Attribute
 
-```mdx
-# Adding Images with src Attribute in MDX
+For more control over your images, you can either use Markdown syntax or HTML tags. Here’s how to include images in both ways:
 
-To include images in MDX files, you can use the Markdown syntax or add images as HTML tags to specify custom attributes, such as the image `src`.
+#### Basic Markdown Syntax
 
-### Basic Markdown Syntax
 The standard Markdown syntax for images works well for most cases:
 
 ```mdx
@@ -40,8 +38,9 @@ The standard Markdown syntax for images works well for most cases:
 
 This displays an image with the specified `src` path.
 
-### Using the `<img>` Tag with `src`
-To gain more control over styling or attributes, use the `<img>` HTML tag within MDX. This approach lets you define the `src`, `alt`, `width`, `height`, and custom `id` for referencing or styling purposes.
+#### Using the `<img>` Tag
+
+To gain more control over styling or attributes, use the `<img>` HTML tag within MDX. This method allows you to define the `src`, `alt`, `width`, `height`, and custom `id` for easier reference.
 
 ```mdx
 <img src="/images/example.jpg" alt="Descriptive Alt Text" width="500" height="300" id="image_01" />
@@ -51,8 +50,8 @@ To gain more control over styling or attributes, use the `<img>` HTML tag within
 
 1. **`src`**: The path to your image file, which can be a local path (`/images/example.jpg`) or a URL (`https://example.com/image.jpg`).
 2. **`alt`**: A text description for accessibility and SEO.
-3. **`id`** (optional): A unique identifier for styling or JavaScript manipulation. Use descriptive names, like `product_image_01`.
-4. **`width` and `height`**: Set specific dimensions to control image display size, useful for responsive layouts.
+3. **`id`** (optional): A unique identifier for styling or JavaScript manipulation, such as `product_image_01`.
+4. **`width` and `height`**: Define dimensions to control image display size, which is useful for responsive layouts.
 
 ### Example Usage
 
@@ -66,14 +65,13 @@ Here is an image with more attributes for styling:
 
 ### Notes on Image Paths
 
-- **Local images**: When working with locally stored images in Next.js or other static-site generators, ensure the image is placed in the `public` directory for the path to work properly. 
-  - Example: `<img src="/images/example.jpg" />` assumes `example.jpg` is stored in `public/images`.
-  
-This method gives you the flexibility to fully control your images and their attributes, enhancing both functionality and aesthetics in MDX files.
+- **Local Images**: When working with locally stored images in Next.js or other static-site generators, ensure the image is placed in the `public` directory for the path to work properly. For example, `<img src="/images/example.jpg" />` assumes `example.jpg` is stored in `public/images`.
+
+This approach gives you flexibility in controlling your images and their attributes, enhancing both functionality and aesthetics in MDX files.
 
 ## Embedding Videos
 
-You can embed videos in MDX using the standard HTML `<iframe>` tag, or with specific React components if your project supports them. Here's a basic example using YouTube:
+You can embed videos in MDX using the standard HTML `<iframe>` tag or specific React components if your project supports them. Here’s a basic example using YouTube:
 
 ```mdx
 <iframe
@@ -87,43 +85,44 @@ You can embed videos in MDX using the standard HTML `<iframe>` tag, or with spec
 ></iframe>
 ```
 
-### Video ID
+### Video ID Management
 
-For videos, especially from platforms like YouTube, you will need the specific video ID, which is typically an 11-character string. You can find the video ID in the URL, for example, in `https://www.youtube.com/watch?v=VIDEO_ID`.
+For videos, particularly from platforms like YouTube, you'll need the specific video ID, typically an 11-character string found in the URL. For example, in `https://www.youtube.com/watch?v=VIDEO_ID`, the `VIDEO_ID` is the part you need.
 
-When creating your own videos or embedding them from other sources, ensure to assign a unique ID that adheres to the following guidelines:
+When creating your own videos or embedding them from other sources, ensure to assign a unique ID following these guidelines:
 - Use alphanumeric characters, underscores, and dashes.
 - Keep the ID concise yet meaningful, like `video_tutorial_01` or `demo_2024`.
 
-To embed a video with an ID like `6h649f2fB9Q` in MDX, you could use a video component such as `<Video />` or an iframe if it’s from a platform like YouTube or Vimeo. Here’s how to approach this, depending on the video source.
+### Example of Embedding a YouTube Video
 
-### For YouTube or Vimeo Videos
-If your `6h649f2fB9Q` ID is a YouTube video ID, you can embed it using an `<iframe>` tag, since it references a specific YouTube video.
+To embed a video with an ID like `6h649f2fB9Q`, you can use an `<iframe>` tag as shown below:
 
 ```mdx
 <iframe
-  id="6h649f2fB9Q"
+  id="video_6h649f2fB9Q"
   width="560"
   height="315"
-  src={`https://www.youtube.com/embed/6h649f2fB9Q`}
+  src="https://www.youtube.com/embed/6h649f2fB9Q"
   title="Video Title"
-  frameBorder="0"
+  frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-/>
+  allowfullscreen
+></iframe>
 ```
 
 ### Using a Custom Video Component
-If you have a `<Video />` component set up in your MDX project that accepts `src` and `id` props, you can use it like this:
+
+If you have a custom `<Video />` component set up in your MDX project that accepts `src` and `id` props, you can implement it like this:
 
 ```mdx
-<Video id="6h649f2fB9Q" src="/path-to-your-video.mp4" controls />
+<Video id="video_6h649f2fB9Q" src="/path-to-your-video.mp4" controls />
 ```
 
-This would be useful if the video file is hosted locally or in your project directory.
+This is particularly useful if the video file is hosted locally or within your project directory.
 
 ### Example of a `<Video />` Component (in JSX or MDX)
-If you want to create a reusable `<Video />` component, here’s a simple example in React:
+
+You can create a reusable `<Video />` component as follows:
 
 ```jsx
 export default function Video({ id, src }) {
@@ -136,17 +135,17 @@ export default function Video({ id, src }) {
 }
 ```
 
-In your MDX file, you could then use:
+Then, in your MDX file, you could use:
 
 ```mdx
-<Video id="6h649f2fB9Q" src="/videos/sample-video.mp4" />
+<Video id="video_6h649f2fB9Q" src="/videos/sample-video.mp4" />
 ```
 
-This approach gives you flexibility in embedding videos with unique IDs for styling, tracking, or script-based manipulation.
+This setup provides flexibility in embedding videos while allowing for unique IDs for styling or script-based manipulation.
 
 ## Summary
 
-Adding images and videos to your MDX files enhances your content's richness and engagement. By utilizing unique IDs, you can manage and reference your media assets more effectively.
+Incorporating images and videos into your MDX files can significantly enhance the richness and engagement of your content. By utilizing unique IDs for your media assets, you can manage and reference them more effectively.
 
 For more detailed guidelines on embedding content, you can refer to the official documentation:
 - [MDX Documentation](https://mdxjs.com/docs/getting-started)
